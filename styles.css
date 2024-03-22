@@ -1,0 +1,47 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orange;
+    color: #333;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+header ul li i {
+    margin-right: 20px;
+}
+
+header ul li input {
+    border: none;
+    padding: 5px;
+}
+
+footer {
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .social-links {
+    list-style: none;
+    display: flex;
+}
+
+footer .social-links li {
+    margin-right: 10px;
+}
+
+
