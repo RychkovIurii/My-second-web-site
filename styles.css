@@ -63,7 +63,7 @@ header ul li input {
 .short {
     background-color: #dedede;
     color: black;
-    margin: 0px auto;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -105,7 +105,6 @@ header ul li input {
 
 .short h4 {
     font-size: 20px;
-    margin-left: 10px;
 }
 
 .nav-sub.show .short img {
@@ -115,8 +114,6 @@ header ul li input {
 .short img{
     width: 20px;
     height: 20px;
-    margin-right: 10px;
-    margin-top: 10px;
 }
 
 footer {
