@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    font-weight: 300;
 }
 
 header {
@@ -43,18 +46,23 @@ header ul li input {
 }
 
 .navigation {
+    background-color: #dedede;
+    display: none;
+}
+
+.show-nav {
     display: flex;
 }
 
 .nav-sub {
     width: 100%;
     margin: 0 auto;
+    border: 1px solid #b1aeae;
 }
 
 .short {
-    max-width: 80%;
-    background-color: #ccc;
-    color: #333;
+    background-color: #dedede;
+    color: black;
     margin: 0px auto;
     display: flex;
     justify-content: space-between;
@@ -62,8 +70,8 @@ header ul li input {
 
 .long{
     max-width: 80%;
-    background-color: #ccc;
-    color: #333;
+    background-color: #dedede;
+    color: black;
     margin: 0px auto;
     display: none;
 }
@@ -71,14 +79,18 @@ header ul li input {
 .nav-sub.show .long {
     display: block;
 }
+.short h4 {
+    font-size: 20px;
+    margin-left: 10px;
+}
 
 .nav-sub.show .short img {
     transform: rotate(180deg);
 }
 
 .short img{
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
     margin-top: 10px;
 }

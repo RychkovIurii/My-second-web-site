@@ -15,7 +15,7 @@
             <ul>
                 <li><i class="fa-solid fa-magnifying-glass"></i><a href="#"><input type="text" placeholder="Search..."></a></li>
                 <li><i class="fa-regular fa-calendar"></i><a href="#">Calendar</a></li>
-                <li><i class="fa-solid fa-bars"></i><a href="#">Navigation</a></li>
+                <li><i class="fa-solid fa-bars"></i><a id="nav-toggle" href="#">Navigation</a></li>
             </ul>
         </header>
 
@@ -85,12 +85,19 @@
 
         <script>
 
-            const questions = document.querySelectorAll(".nav-sub");
-    
-            questions.forEach((item) => {
+            const navSub = document.querySelectorAll(".nav-sub");
+
+            navSub.forEach((item) => {
                 item.addEventListener("click", () => {
                     item.classList.toggle("show");
                 });
+            });
+
+            const navID = document.getElementById("nav-toggle");
+            const navBar = document.querySelector('.navigation');
+
+            navID.addEventListener("click", () => {
+                navBar.classList.toggle("show-nav");
             });
         </script>
 </body>
