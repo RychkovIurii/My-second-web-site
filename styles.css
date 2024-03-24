@@ -74,11 +74,35 @@ header ul li input {
     color: black;
     margin: 0px auto;
     display: none;
+    transition: all 0.3s ease;
 }
 
 .nav-sub.show .long {
     display: block;
 }
+
+.long ul {
+    list-style: none;
+    padding: 0;
+}
+
+.long ul li {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.long ul li a {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.long ul li a:hover {
+    font-weight: bold;
+}
+
 .short h4 {
     font-size: 20px;
     margin-left: 10px;
@@ -99,8 +123,9 @@ footer {
     background-color: #333;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    padding: 20px 0; 
 }
 
 footer .social-links {
