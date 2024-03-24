@@ -1,25 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: orange;
-    color: #333;
+    background-color: #333;
+    color: white;
 }
 
 header .logo img {
-    height: 50px;
+    height: 60px;
+    margin: 20px;
 }
 
 header ul {
     display: flex;
     align-items: center;
-    gap: 20px;
+    list-style-type: none;
 }
 
+header ul li {
+    margin-right: 30px;
+}
 
+header ul li a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
 
 header ul li i {
-    margin-right: 20px;
+    margin: 10px;
+    font-size: 24px;
 }
 
 header ul li input {
@@ -27,8 +42,49 @@ header ul li input {
     padding: 5px;
 }
 
+.navigation {
+    display: flex;
+}
+
+.nav-sub {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.short {
+    max-width: 80%;
+    background-color: #ccc;
+    color: #333;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.long{
+    max-width: 80%;
+    background-color: #ccc;
+    color: #333;
+    margin: 0px auto;
+    display: none;
+}
+
+.nav-sub.show .long {
+    display: block;
+}
+
+.nav-sub.show .short img {
+    transform: rotate(180deg);
+}
+
+.short img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
 footer {
-    background-color: orange;
+    background-color: #333;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -38,10 +94,16 @@ footer {
 footer .social-links {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer .social-links li {
-    margin-right: 10px;
+    margin: 10px;
 }
 
+footer ul li a {
+    text-decoration: none;
+    color: white;
+}
 
