@@ -46,8 +46,16 @@ header ul li input {
 }
 
 .navigation {
+    display: flex;
+    flex-direction: row;
     background-color: #dedede;
-    display: none;
+    position: relative;
+}
+
+.navigation .nav-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
 }
 
 .show-nav {
@@ -55,9 +63,10 @@ header ul li input {
 }
 
 .nav-sub {
-    width: 100%;
-    margin: 0 auto;
     border: 1px solid #b1aeae;
+    position: relative;
+    flex-grow: 1;
+    text-align: left;
 }
 
 .short {
@@ -66,15 +75,17 @@ header ul li input {
     margin: 10px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .long{
-    max-width: 80%;
+    position: absolute;
+    width: 100%;
     background-color: #dedede;
     color: black;
-    margin: 0px auto;
+    z-index: 1000;
     display: none;
-    transition: all 0.3s ease;
+    top: 100%;
 }
 
 .nav-sub.show .long {
