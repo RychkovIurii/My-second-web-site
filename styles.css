@@ -46,7 +46,7 @@ header ul li input {
 }
 
 .navigation {
-    display: flex;
+    display: none;
     flex-direction: row;
     background-color: #dedede;
     position: relative;
@@ -79,6 +79,7 @@ header ul li input {
 }
 
 .long{
+    padding: 10px;
     position: absolute;
     width: 100%;
     background-color: #dedede;
