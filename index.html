@@ -21,11 +21,11 @@
 
         <div class="navigation">
             <div class="nav-sub">
-                <div class="short">
+                <div class="short" aria-haspopup="true" aria-expanded="false">
                     <h4>Libraries and services</h4>
                     <img src="images/arrow.png" alt="Toggle" id="toggleIcon">
                 </div>
-                <div class="long">
+                <div class="long" aria-hidden="true">
                     <ul>
                         <li><a href="#">Digital Support</a></li>
                         <li><a href="#">Interlibrary loans</a></li>
@@ -124,7 +124,13 @@
             const navSub = document.querySelectorAll(".nav-sub");
 
             navSub.forEach((item) => {
-                item.addEventListener("click", () => {
+                const short = item.querySelector(".short");
+                const long = item.querySelector(".long");
+
+                short.addEventListener("click", () => {
+                    const isExpanded = short.getAttribute("aria-expanded") === "true";
+                    short.setAttribute("aria-expanded", !isExpanded);
+                    long.setAttribute("aria-hidden", isExpanded);
                     item.classList.toggle("show");
                 });
             });
@@ -133,6 +139,8 @@
             const navBar = document.querySelector('.navigation');
 
             navID.addEventListener("click", () => {
+                const isExpanded = navID.getAttribute("aria-expanded") === "true";
+                navID.setAttribute("aria-expanded", !isExpanded);
                 navBar.classList.toggle("show-nav");
             });
         </script>
