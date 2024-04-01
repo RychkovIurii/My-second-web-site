@@ -163,6 +163,19 @@ header ul li input {
     line-height: 1.6;
 }
 
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:hover h3,
+.card-link:focus h3,
+.card-link:hover p,
+.card-link:focus p {
+    text-decoration: underline;
+}
+
 footer {
     background-color: #2b7a78;
     color: white;
