@@ -156,3 +156,31 @@ footer ul li a {
     color: white;
 }
 
+@media (max-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    header, nav, .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .navigation .nav-container, .nav-sub{
+        flex-direction: column;
+    }
+    .nav-sub .short, .nav-sub .long {
+        width: 100%;
+    }
+    .nav-sub .short {
+        padding-right: 16px;
+    }
+    header ul li input {
+        display: none;
+    }
+
+    header ul li:nth-child(2) {
+        display: none;
+    }
+}
