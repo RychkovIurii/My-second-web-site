@@ -124,6 +124,20 @@
         <script>
 
             const navSubs = document.querySelectorAll(".nav-sub");
+            const navID = document.getElementById("nav-toggle");
+            const navBar = document.querySelector('.navigation');
+
+            navID.addEventListener("click", () => {
+                navBar.classList.toggle("show-nav");
+                if (navBar.classList.contains("show-nav")) {
+                    navSubs.forEach(navSub => {
+                        const long = navSub.querySelector(".long");
+                        const toggleIcon = navSub.querySelector(".short img");
+                        long.style.display = "none";
+                        toggleIcon.style.transform = "";
+                    });
+                }
+                });
 
             navSubs.forEach((navSub) => {
                 const short = navSub.querySelector(".short");
@@ -144,12 +158,6 @@
                 });
             });
 
-            const navID = document.getElementById("nav-toggle");
-            const navBar = document.querySelector('.navigation');
-
-            navID.addEventListener("click", () => {
-                navBar.classList.toggle("show-nav");
-            });
         </script>
 </body>
 </html>

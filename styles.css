@@ -63,7 +63,7 @@ header ul li input {
 }
 
 .nav-sub {
-    border: 1px solid #b1aeae;
+    border-bottom: 5px solid #e7761f;
     position: relative;
     flex-grow: 1;
     text-align: left;
