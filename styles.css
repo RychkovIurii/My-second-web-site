@@ -26,6 +26,8 @@ header ul {
 }
 
 header ul li {
+    display: flex;
+    align-items: center;
     margin-right: 30px;
 }
 
@@ -43,6 +45,7 @@ header ul li i {
 header ul li input {
     border: none;
     padding: 5px;
+    
 }
 
 .navigation {
