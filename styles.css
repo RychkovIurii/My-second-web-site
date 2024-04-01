@@ -10,7 +10,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: #2b7a78;
     color: white;
 }
 
@@ -51,7 +51,7 @@ header ul li input {
 .navigation {
     display: none;
     flex-direction: row;
-    background-color: #dedede;
+    background-color: #def2f1;
     position: relative;
 }
 
@@ -66,15 +66,15 @@ header ul li input {
 }
 
 .nav-sub {
-    border-bottom: 5px solid #e7761f;
+    border-bottom: 5px solid #2b7a78;
     position: relative;
     flex-grow: 1;
     text-align: left;
 }
 
 .short {
-    background-color: #dedede;
-    color: black;
+
+    color: #17252a;
     margin: 10px;
     display: flex;
     justify-content: space-between;
@@ -85,8 +85,8 @@ header ul li input {
     padding: 10px;
     position: absolute;
     width: 100%;
-    background-color: #dedede;
-    color: black;
+    background-color: #feffff;
+    color: #17252a;
     z-index: 1000;
     display: none;
     top: 100%;
@@ -110,7 +110,7 @@ header ul li input {
 .long ul li a {
     font-size: 18px;
     text-decoration: none;
-    color: black;
+    color: #17252a;
     display: block;
 }
 
@@ -139,7 +139,7 @@ header ul li input {
 }
 
 .card {
-    background-color: white;
+    background-color: #def2f1;
     border: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -152,20 +152,19 @@ header ul li input {
 .card h3 {
     margin: 0;
     padding: 15px;
-    background-color: #f8f8f8;
-    color: #333;
+    color: #17252a;
     font-size: 18px;
 }
 
 .card p {
     padding: 15px;
-    color: #666;
+    color: #223942;
     font-size: 14px;
     line-height: 1.6;
 }
 
 footer {
-    background-color: #333;
+    background-color: #2b7a78;
     color: white;
     display: flex;
     justify-content: center;
