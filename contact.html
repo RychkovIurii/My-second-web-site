@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+        <header>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search..."></a></li>
+                <li><a href="#"><i class="fa-regular fa-calendar"></i>EVENTS</a></li>
+                <li><a id="nav-toggle" href="#"><i class="fa-solid fa-bars"></i>MENU</a></li>
+            </ul>
+        </header>
+
+        <div class="navigation">
+            <div class="nav-container">
+                <div class="nav-sub">
+                    <div class="short">
+                        <h4>Libraries and services</h4>
+                        <img src="images/arrow.png" alt="Toggle" class="toggleIcon">
+                    </div>
+                    <div class="long" aria-hidden="true">
+                        <ul>
+                            <li><a href="#">Digital Support</a></li>
+                            <li><a href="#">Interlibrary loans</a></li>
+                            <li><a href="#">Mobile Library</a></li>
+                            <li><a href="#">Self-service libraries</a></li>
+                            <li><a href="#">Library Makerspace</a></li>
+                            <li><a href="#">Work and have fun</a></li>
+                            <li><a href="#">Volunteer at a library</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-sub">
+                    <div class="short">
+                        <h4>eLibrary</h4>
+                        <img src="images/arrow.png" alt="Toggle" class="toggleIcon">
+                    </div>
+                    <div class="long">
+                        <ul>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">eLibrary news</a></li>
+                            <li><a href="#">Books and audiobooks</a></li>
+                            <li><a href="#">Magazines</a></li>
+                            <li><a href="#">Online Courses</a></li>
+                            <li><a href="#">Databases</a></li>
+                            <li><a href="#">Links to other websites</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-sub">
+                    <div class="short">
+                        <h4>Music</h4>
+                        <img src="images/arrow.png" alt="Toggle" class="toggleIcon">
+                    </div>
+                    <div class="long">
+                        <ul>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">New in music</a></li>
+                            <li><a href="#">Collections</a></li>
+                            <li><a href="#">Services in libraries</a></li>
+                            <li><a href="#">Online services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-sub">
+                    <div class="short">
+                        <h4>Events and Tips</h4>
+                        <img src="images/arrow.png" alt="Toggle" class="toggleIcon">
+                    </div>
+                    <div class="long">
+                        <ul>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Tips</a></li>
+                            <li><a href="#">News flash</a></li>
+                            <li><a href="#">New titles</a></li>
+                            <li><a href="#">Social media</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-sub">
+                    <div class="short">
+                        <h4>Info</h4>
+                        <img src="images/arrow.png" alt="Toggle" class="toggleIcon">
+                    </div>
+                    <div class="long">
+                        <ul>
+                            <li><a href="#">Using the library</a></li>
+                            <li><a href="#">How to find things</a></li>
+                            <li><a href="./contact.html">Ask us</a></li>
+                            <li><a href="#">Accessibility statement</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Site search</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <main>
+                <div class="contact-card">
+                    <form>
+                        <ul>
+                            <li id="name"><input type="text" placeholder="Name"></li>
+                            <li id="email"><input type="email" placeholder="Email"></li>
+                            <li id="message"><textarea placeholder="Message"></textarea></li>
+                            <li><button type="submit">Send</button></li>
+                        </ul>
+                    </form>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <ul class="social-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+            </ul>
+        </footer>
+
+        <script>
+
+            const navSubs = document.querySelectorAll(".nav-sub");
+            const navID = document.getElementById("nav-toggle");
+            const navBar = document.querySelector('.navigation');
+
+            navID.addEventListener("click", () => {
+                navBar.classList.toggle("show-nav");
+                if (navBar.classList.contains("show-nav")) {
+                    navSubs.forEach(navSub => {
+                        const long = navSub.querySelector(".long");
+                        const toggleIcon = navSub.querySelector(".short img");
+                        long.style.display = "none";
+                        toggleIcon.style.transform = "";
+                    });
+                }
+                });
+
+            navSubs.forEach((navSub) => {
+                const short = navSub.querySelector(".short");
+                const long = navSub.querySelector(".long");
+                const toggleIcon = short.querySelector("img");
+
+                short.addEventListener("click", () => {
+                    navSubs.forEach((otherNavSub) => {
+                        if (otherNavSub !== navSub) {
+                            otherNavSub.querySelector(".long").style.display = "none";
+                            otherNavSub.querySelector("img").style.transform = "";
+                        }
+                    });
+
+                    const isExpanded = long.style.display === "block";
+                    long.style.display = isExpanded ? "none" : "block";
+                    toggleIcon.style.transform = isExpanded ? "" : "rotate(180deg)";
+                });
+            });
+
+        </script>
+</body>
+</html>
