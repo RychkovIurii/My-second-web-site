@@ -108,17 +108,21 @@
 
     <div class="container">
         <main>
-            <div class="search-card">
-                <form>
-                    <fieldset>
-                    <legend>Catalog</legend>
-                    <label for="isbnID">Search ISBN:</label>
-                    <input type="text" id="isbnID" name="fisbnName"><br>
-                    <button type="button" onclick="searchISBN()">Search</button>
-                    </fieldset>
-                </form>
+            <div class="search-grid">
+                <div id="formID" class="search-card">
+                    <form>
+                        <fieldset>
+                        <legend>Catalog</legend>
+                        <label for="isbnID">Search:</label>
+                        <input type="text" id="isbnID" name="fisbnName" placeholder="ISBN 10 or 13 digits"><br>
+                        <button type="button" onclick="searchISBN()">Search</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="coverDiv" class="search-card">
+                    <div id="result"></div>
+                </div>
             </div>
-            <div id="result"></div>
         </main>
     </div>
 
@@ -180,6 +184,7 @@
                 .then(data => {
                     if (data.title && data.publish_date && data.authors) {
                         const resultElement = document.getElementById("result");
+                        const coverElement = document.getElementById("coverDiv");
                         if (data.covers && data.covers.length > 0){
                             const imgElement = document.createElement("img");
                             imgElement.id = "myCover";
@@ -188,8 +193,7 @@
                                 }).then(myPicture => {
                                     const imageUrl = URL.createObjectURL(myPicture);
                                     imgElement.src = imageUrl;
-                                    const resultElement = document.getElementById("result");
-                                    resultElement.appendChild(imgElement);
+                                    coverElement.appendChild(imgElement);
                                 });
                         }
                         const authorKeys = data.authors.map(author => author.key);
@@ -222,8 +226,8 @@
                                 const authors = authorData.map(author => author.name);
                                 document.getElementById("result").innerHTML =
                                     "Title is " + data.title +
-                                    ". Publish date is " + data.publish_date +
-                                    ". Written by " + authors.join(", ");
+                                    ".<br><br>Publish date is " + data.publish_date +
+                                    ".<br><br>Written by " + authors.join(", ") + ".<br><br>";
                                 //console.log(authors);
                             })
                             .catch(error => {
