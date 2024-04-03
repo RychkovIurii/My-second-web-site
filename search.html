@@ -173,32 +173,34 @@
                 fetch(`https://openlibrary.org/isbn/${isbn}.json`)
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error('Network response was not ok');
+                            throw new Error('Network response is not ok');
                         }
                         return response.json();
                     })
                     .then(data => {
                         if (data.title && data.publish_date && data.authors) {
                             const authorKeys = data.authors.map(author => author.key);
-                            const authors = [];
-                            authorKeys.forEach(element => {
-                                fetch(`https://openlibrary.org${element}.json`)
+                            const authorPromises = authorKeys.map(element => {
+                                return fetch(`https://openlibrary.org${element}.json`)
                                     .then(response => {
                                         if (!response.ok) {
-                                            throw new Error('Network response was not ok');
+                                            throw new Error('Network response is not ok');
                                         }
                                         return response.json();
-                                    })
-                                    .then(authorjson => authors.push(authorjson.name))
+                                    });
                             });
-                            document.getElementById("result").innerHTML =
-                                "Title is " + data.title +
-                                ". Publish date is " + data.publish_date +
-                                ". Written by";
-                            for(let i = 0; i<authors.length; i++){
-                                document.getElementById("result").innerHTML += " " + authors[i]
-                            }
-                            console.log(authors);
+                            Promise.all(authorPromises)
+                                .then(authorData => {
+                                    const authors = authorData.map(author => author.name);
+                                    document.getElementById("result").innerHTML =
+                                        "Title is " + data.title +
+                                        ". Publish date is " + data.publish_date +
+                                        ". Written by " + authors.join(", ");
+                                    console.log(authors);
+                                })
+                                .catch(error => {
+                                    console.error("Error fetching author data:", error);
+                                });
                         } else {
                             document.getElementById("result").innerHTML = "Book data not found";
                         }
@@ -207,6 +209,7 @@
                         alert("Something went wrong. " + error);
                     });
             }
+
 
         </script>
 </body>
