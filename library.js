@@ -71,7 +71,11 @@ function searchISBN() {
 		.then(data => {
 			if (data.title && data.publish_date && data.authors) {
 				const resultElement = document.getElementById("result");
+				//resultElement.innerHTML = "result";
+				//console.log(resultElement);
 				const coverElement = document.getElementById("coverDiv");
+				//coverElement.innerHTML = "cover";
+				//console.log(coverElement);
 				if (data.covers && data.covers.length > 0){
 					const imgElement = document.createElement("img");
 					imgElement.id = "myCover";
@@ -112,9 +116,9 @@ function searchISBN() {
 					.then(authorData => {
 						const authors = authorData.map(author => author.name);
 						document.getElementById("result").innerHTML =
-							"Title is " + data.title +
-							".<br><br>Publish date is " + data.publish_date +
-							".<br><br>Written by " + authors.join(", ") + ".<br><br>";
+							"<h3>Title is " + data.title +
+							".</h3><p>Publish date is " + data.publish_date +
+							".</p><p>Written by " + authors.join(", ") + ".</p><br>";
 						//console.log(authors);
 					})
 					.catch(error => {
