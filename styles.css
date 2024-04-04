@@ -234,6 +234,8 @@ header ul li input {
     align-items: center;
     max-width: 100%;
     max-height: 400px;
+    border: none;
+    box-shadow: none;
 }
 
 #coverDiv img {
@@ -446,8 +448,12 @@ main {
     background-color: #191A19;
 }
 
-.dark-mode #result h3, #result p {
-    color: #17252a;
+.dark-mode #coverDiv {
+    background-color: #444544;
+}
+
+.dark-mode #result h3, .dark-mode #result p {
+    color: #e3e3e3;
 }
 
 .dark-mode footer {
@@ -473,7 +479,7 @@ main {
 }
 
 .dark-mode .contact-card button {
-    background-color: #191A19;
+    background-color: #444544;
     color: #fff;
 }
 
