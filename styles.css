@@ -370,3 +370,100 @@ main {
         display: none;
     }
 }
+
+.dark-mode {
+    background-color: #444544;
+}
+
+.dark-mode header {
+    background-color: #191A19;
+    color: #e3e3e3;
+}
+
+.dark-mode header ul li a {
+    color: #e3e3e3;
+}
+
+.dark-mode .navigation {
+    background-color: #e3e3e3;
+}
+.dark-mode .nav-sub {
+    border-bottom: 5px solid #191A19;
+}
+
+.dark-mode .short {
+
+    color: #17252a;
+}
+
+.dark-mode .long{
+    background-color: #e3e3e3;
+    color: #17252a;
+}
+
+.dark-mode .long ul li a {
+    color: #17252a;
+}
+
+.dark-mode .card {
+    background-color: #191A19;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dark-mode .card h3 {
+    color: #e3e3e3;
+}
+
+.dark-mode .card p {
+    color: #d4d1d1;
+}
+
+.dark-mode #formID {
+    background-color: #def2f1;
+    border: 1px solid #ddd;
+}
+
+.dark-mode #formID button {
+    background-color: #2b7a78;
+    color: white;
+}
+
+.dark-mode #formID button:hover {
+    background-color: #223942;
+}
+
+.dark-mode #result h3, #result p {
+    color: #17252a;
+}
+
+.dark-mode footer {
+    background-color: #191A19;
+    color: #e3e3e3;
+}
+
+.dark-mode footer ul li a {
+    color: white;
+}
+
+.dark-mode .contact-card {
+    background-color: #e3e3e3;
+    border: 1px solid #e3e3e3;
+}
+
+.dark-mode .contact-card input::placeholder {
+    color: #17252a;
+}
+
+.dark-mode .contact-card textarea::placeholder {
+    color: #17252a;
+}
+
+.dark-mode .contact-card button {
+    background-color: #2b7a78;
+    color: #fff;
+}
+
+.dark-mode .contact-card button:hover {
+    background-color: #17252a;
+}

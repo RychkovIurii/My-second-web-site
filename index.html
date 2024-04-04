@@ -176,6 +176,10 @@
                 <li><a href="#">Twitter</a></li>
                 <li><a href="#">Youtube</a></li>
             </ul>
+            <button id="dark-mode-toggle">
+                <i id="toggle-off" class="fa-solid fa-toggle-off"></i>
+                <i id="toggle-on" class="fa-solid fa-toggle-on" style="display: none;"></i>
+            </button>
         </footer>
 
         <script>
@@ -214,6 +218,23 @@
                     toggleIcon.style.transform = isExpanded ? "" : "rotate(180deg)";
                 });
             });
+
+            const darkToggle = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+            darkToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const toggleOffIcon = document.getElementById('toggle-off');
+                const toggleOnIcon = document.getElementById('toggle-on');
+                const isDark = body.classList.contains('dark-mode');
+                if (isDark) {
+                    toggleOffIcon.style.display = 'none';
+                    toggleOnIcon.style.display = 'inline-block';
+                } else {
+                    toggleOffIcon.style.display = 'inline-block';
+                    toggleOnIcon.style.display = 'none';
+                }
+            });
+
 
         </script>
 </body>
