@@ -244,7 +244,6 @@ header ul li input {
 
 footer {
     background-color: #2b7a78;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,6 +264,20 @@ footer .social-links li {
 footer ul li a {
     text-decoration: none;
     color: white;
+}
+
+#dark-mode-toggle{
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#toggle-off, #toggle-on {
+    font-size: 24px;
+    color: #e3e3e3;
 }
 
 .container{
@@ -420,17 +433,17 @@ main {
 }
 
 .dark-mode #formID {
-    background-color: #def2f1;
+    background-color: #e3e3e3;
     border: 1px solid #ddd;
 }
 
 .dark-mode #formID button {
-    background-color: #2b7a78;
+    background-color: #444544;
     color: white;
 }
 
 .dark-mode #formID button:hover {
-    background-color: #223942;
+    background-color: #191A19;
 }
 
 .dark-mode #result h3, #result p {
@@ -460,10 +473,10 @@ main {
 }
 
 .dark-mode .contact-card button {
-    background-color: #2b7a78;
+    background-color: #191A19;
     color: #fff;
 }
 
 .dark-mode .contact-card button:hover {
-    background-color: #17252a;
+    background-color: #191A19;
 }
