@@ -70,11 +70,11 @@ function searchISBN() {
 		})
 		.then(data => {
 			if (data.title && data.publish_date && data.authors) {
-				const resultElement = document.getElementById("result");
-				//resultElement.innerHTML = "result";
+				//const resultElement = document.getElementById("result");
+				//resultElement.innerHTML = "";
 				//console.log(resultElement);
 				const coverElement = document.getElementById("coverDiv");
-				//coverElement.innerHTML = "cover";
+				coverElement.innerHTML = "";
 				//console.log(coverElement);
 				if (data.covers && data.covers.length > 0){
 					const imgElement = document.createElement("img");
@@ -98,7 +98,28 @@ function searchISBN() {
 							return response.json();
 						});
 				});
-/*                         const bookURL = data[0].thumbnail_url;
+				Promise.all(authorPromises)
+					.then(authorData => {
+						const authors = authorData.map(author => author.name);
+						document.getElementById("coverDiv").innerHTML =
+							"<h3>Title is " + data.title +
+							".</h3><p>Publish date is " + data.publish_date +
+							".</p><p>Written by " + authors.join(", ") + ".</p><br>";
+						//console.log(authors);
+					})
+					.catch(error => {
+						console.error("Error fetching author data:", error);
+					});
+			} else {
+				document.getElementById("coverDiv").innerHTML = "Book data not found";
+			}
+		})
+		.catch(error => {
+			alert("Something went wrong. " + error);
+		});
+}
+
+/*                         const bookURL = data[0].thumbnail_url;			//draft for img
 					if (bookURL) {
 						const resultElement = document.getElementById("result");
 						const imgElement = document.createElement("img");
@@ -112,28 +133,8 @@ function searchISBN() {
 						resultElement.appendChild(imgElement);
 						});
 					} */
-				Promise.all(authorPromises)
-					.then(authorData => {
-						const authors = authorData.map(author => author.name);
-						document.getElementById("result").innerHTML =
-							"<h3>Title is " + data.title +
-							".</h3><p>Publish date is " + data.publish_date +
-							".</p><p>Written by " + authors.join(", ") + ".</p><br>";
-						//console.log(authors);
-					})
-					.catch(error => {
-						console.error("Error fetching author data:", error);
-					});
-			} else {
-				document.getElementById("result").innerHTML = "Book data not found";
-			}
-		})
-		.catch(error => {
-			alert("Something went wrong. " + error);
-		});
-}
 
-/* async function searchISBN() {
+/* async function searchISBN() {											//without img
 	const isbn = document.getElementById("isbnID").value;
 	try {
 	const response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
@@ -166,7 +167,7 @@ function searchISBN() {
 	}
 } */
 
-/* function searchISBN() {
+/* function searchISBN() { 														//the first draft
 	console.log("Yes1");
 	const isbn = document.getElementById("isbnID").value;
 	console.log(isbn);
@@ -185,4 +186,50 @@ function searchISBN() {
 	.catch(error => {
 		alert("Something went wrong. " + error);
 	});
+} */
+
+
+
+
+/* async function searchISBN() {										//same behaviour like mine. Tried re-write with async
+	const isbn = document.getElementById("isbnID").value;
+	const response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+	if (!response.ok) {
+		throw new Error('Network response is not ok');
+	}
+	const data = await response.json();
+	if (data.title && data.publish_date && data.authors) {
+		const resultElement = document.getElementById("result");
+		resultElement.innerHTML = "";
+		//console.log(resultElement);
+		const coverElement = document.getElementById("coverDiv");
+		coverElement.innerHTML = "";
+		//console.log(coverElement);
+		if (data.covers && data.covers.length > 0){
+			const imgElement = document.createElement("img");
+			imgElement.id = "myCover";
+			const temp = await fetch(`https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`);
+			const myPicture = await temp.blob();
+				const imageUrl = URL.createObjectURL(myPicture);
+				imgElement.src = imageUrl;
+				coverElement.appendChild(imgElement);
+		}
+		const authorKeys = data.authors.map(author => author.key);
+		const authors = [];
+		for (const key of authorKeys) {
+			const authorResponse = await fetch(`https://openlibrary.org${key}.json`);
+			if (!authorResponse.ok) {
+				throw new Error('Network response is not ok');
+			}
+			const authorData = await authorResponse.json();
+			authors.push(authorData.name);
+		}
+		document.getElementById("result").innerHTML =
+			"<h3>Title is " + data.title +
+			".</h3><p>Publish date is " + data.publish_date +
+			".</p><p>Written by " + authors.join(", ") + ".</p><br>";
+		//console.log(authors);
+	} else {
+		document.getElementById("result").innerHTML = "Book data not found";
+	}
 } */

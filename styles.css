@@ -223,7 +223,7 @@ header ul li input {
     background-color: #223942;
 }
 
-#result h3, #result p {
+#coverDiv h3, #coverDiv p {
     color: #17252a;
     padding: 10px 0;
 }
@@ -452,7 +452,7 @@ main {
     background-color: #444544;
 }
 
-.dark-mode #result h3, .dark-mode #result p {
+.dark-mode #coverDiv h3, .dark-mode #coverDiv p {
     color: #e3e3e3;
 }
 
